@@ -11,7 +11,7 @@ export default class StartPage extends React.Component {
 
   render() {
     return(
-      <LinearGradient colors={['#0b1e3a', '#e72eea']} style={styles.container}>
+      <LinearGradient colors={['#001E39', '#F602EB']} style={styles.container}>
         <Image source={Logo} style={styles.logoImage} />
         <Text style={styles.title}>UltraNote Infinity</Text>
         <Text style={styles.description}>UltraNote Infinity encryped messaging and billing system with up 100MB file transfers.</Text>

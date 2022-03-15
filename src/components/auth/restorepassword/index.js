@@ -4,7 +4,7 @@ import { LinearGradient } from "expo-linear-gradient"
 
 import Logo from "../../../assets/img/logo.png"
 
-export default class Login extends React.Component {
+export default class RestorePassword extends React.Component {
   componentDidMount() {
     StatusBar.setHidden(true)
   }
@@ -13,12 +13,11 @@ export default class Login extends React.Component {
     return(
       <LinearGradient colors={['#001E39', '#9B0594']} style={styles.container}>
         <Image source={Logo} style={styles.logoImage} />
-        <Text style={styles.title}>LOGIN</Text>
-        <TextInput style={styles.inputText} placeholder="Email" placeholderTextColor="#777777" autoCapitalize="none" />
-        <TextInput style={styles.inputText} placeholder="Password" placeholderTextColor="#777777" autoCapitalize="none" secureTextEntry={true} />
-        <Text style={styles.forgot}>Forgot your password?</Text>
-        <TouchableOpacity><Text style={styles.loginBtn}>LOGIN</Text></TouchableOpacity>
-        <Text style={styles.not}>Don't have account? <Text style={styles.signup}>Sign up</Text></Text>
+        <Text style={styles.title}>RESTORE PASSWORD</Text>
+        <TextInput style={styles.inputText} placeholder="E-mail address" placeholderTextColor="#777777" autoCapitalize="none" />
+        <Text style={styles.reset}>You will receive email with password reset link</Text>
+        <TouchableOpacity><Text style={styles.loginBtn}>SEND INTRUCTIONS</Text></TouchableOpacity>
+        <Text style={styles.not}>Already have an account? <Text style={styles.signup}>Login</Text></Text>
       </LinearGradient>
     )
   }
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginTop: 10,
-    marginBottom: 10,
+    marginBottom: 50,
   },
   inputText: {
     width: Dimensions.get("window").width / 1.5,
@@ -57,12 +56,15 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 5
   },
-  forgot: {
+  reset: {
     color: "#00F3FC",
     fontSize: 18,
     fontFamily: "Roboto",
     fontWeight: "400",
-    marginBottom: 50
+    textAlign: "center",
+    paddingLeft: 50,
+    paddingRight: 50,
+    marginBottom: 70,
   },
   loginBtn: {
     width: Dimensions.get("window").width / 1.5,
