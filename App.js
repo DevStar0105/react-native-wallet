@@ -1,17 +1,32 @@
 import React from "react"
-import { View } from "react-native"
+import { NavigationContainer } from "@react-navigation/native"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
 import StartPage from "./src/components/auth/startpage"
 import Login from "./src/components/auth/login"
 import SignUp from "./src/components/auth/signup"
 import RestorePassword from "./src/components/auth/restorepassword"
 
+import Dashboard from "./src/components/wallet/dashboard"
+import { Colors } from "react-native/Libraries/NewAppScreen"
+
+const Stack = createNativeStackNavigator()
+
 export default class App extends React.Component {
   render() {
     return(
-      <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-        <RestorePassword />
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator>
+          {/* <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+            <RestorePassword />
+          </View> */}
+          <Stack.Screen name="StartPage" component={StartPage} options={{title: "StartPage", headerShown: false}} />
+          <Stack.Screen name="Login" component={Login} options={{title: "Login", headerShown: false}} />
+          <Stack.Screen name="SignUp" component={SignUp} options={{title: "SignUp", headerShown: false}} />
+          <Stack.Screen name="RestorePassword" component={RestorePassword} options={{title: "RestorePassword", headerShown: false}} />
+          <Stack.Screen name="Dashboard" component={Dashboard} options={{title: "My Wallet", headerTitleStyle: {color: Colors.white}, headerStyle: {backgroundColor: "#00172B"}, headerTitleAlign: "center", headerLeft: null}} />
+        </Stack.Navigator>
+      </NavigationContainer>
     )
   }
 }

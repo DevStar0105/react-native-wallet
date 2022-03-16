@@ -9,14 +9,22 @@ export default class StartPage extends React.Component {
     StatusBar.setHidden(true)
   }
 
+  goLogin = () => {
+    this.props.navigation.navigate("Login")
+  }
+
+  goSignUp = () => {
+    this.props.navigation.navigate("SignUp")
+  }
+
   render() {
     return(
       <LinearGradient colors={['#001E39', '#F602EB']} style={styles.container}>
         <Image source={Logo} style={styles.logoImage} />
         <Text style={styles.title}>UltraNote Infinity</Text>
         <Text style={styles.description}>UltraNote Infinity encryped messaging and billing system with up 100MB file transfers.</Text>
-        <TouchableOpacity><Text style={styles.loginBtn}>LOGIN</Text></TouchableOpacity>
-        <TouchableOpacity><Text style={styles.signupBtn}>SIGN UP</Text></TouchableOpacity>
+        <TouchableOpacity><Text style={styles.loginBtn} onPress={this.goLogin}>LOGIN</Text></TouchableOpacity>
+        <TouchableOpacity><Text style={styles.signupBtn} onPress={this.goSignUp}>SIGN UP</Text></TouchableOpacity>
       </LinearGradient>
     )
   }

@@ -9,6 +9,10 @@ export default class RestorePassword extends React.Component {
     StatusBar.setHidden(true)
   }
 
+  goLogin = () => {
+      this.props.navigation.navigate("Login")
+  }
+
   render() {
     return(
       <LinearGradient colors={['#001E39', '#9B0594']} style={styles.container}>
@@ -17,7 +21,7 @@ export default class RestorePassword extends React.Component {
         <TextInput style={styles.inputText} placeholder="E-mail address" placeholderTextColor="#777777" autoCapitalize="none" />
         <Text style={styles.reset}>You will receive email with password reset link</Text>
         <TouchableOpacity><Text style={styles.loginBtn}>SEND INTRUCTIONS</Text></TouchableOpacity>
-        <Text style={styles.not}>Already have an account? <Text style={styles.signup}>Login</Text></Text>
+        <Text style={styles.not}>Already have an account? <Text style={styles.signup} onPress={this.goLogin}>Login</Text></Text>
       </LinearGradient>
     )
   }
