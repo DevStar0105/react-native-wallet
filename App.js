@@ -1,4 +1,5 @@
 import React from "react"
+import { AppRegistry } from "react-native"
 import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
@@ -17,9 +18,6 @@ export default class App extends React.Component {
     return(
       <NavigationContainer>
         <Stack.Navigator>
-          {/* <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-            <RestorePassword />
-          </View> */}
           <Stack.Screen name="StartPage" component={StartPage} options={{title: "StartPage", headerShown: false}} />
           <Stack.Screen name="Login" component={Login} options={{title: "Login", headerShown: false}} />
           <Stack.Screen name="SignUp" component={SignUp} options={{title: "SignUp", headerShown: false}} />
@@ -30,3 +28,5 @@ export default class App extends React.Component {
     )
   }
 }
+
+AppRegistry.registerComponent("wallet", () => App)
