@@ -1,13 +1,22 @@
 import React from "react"
-import { StatusBar, Text, TextInput, Image, StyleSheet, Dimensions, TouchableOpacity, ToastAndroid } from "react-native"
+import { StatusBar, View, Text, TextInput, Image, StyleSheet, Dimensions, TouchableOpacity, ToastAndroid } from "react-native"
 import { LinearGradient } from "expo-linear-gradient"
+import { NavigationContainer } from "@react-navigation/native"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
 import { HTTP_REQUEST_URL } from "../../config"
 import Logo from "../../../assets/img/logo.png"
+import Buy from "./buy"
+import Sell from "./sell"
+import Wallet from "./wallet"
+import Dashboard from "./dashboard"
+import Notification from "./notification"
+import Profile from "./profile"
 
 const validator = require("validator")
+const Tab = createBottomTabNavigator()
 
-export default class Dashboard extends React.Component {
+export default class MyWallet extends React.Component {
   state = {
     firstName: "",
     mail: "",
@@ -73,15 +82,14 @@ export default class Dashboard extends React.Component {
 
   render() {
     return(
-      <LinearGradient colors={['#331557', '#9B0594']} style={styles.container}>
-        {/* <Image source={Logo} style={styles.logoImage} />
-        <Text style={styles.title}>SIGN UP</Text>
-        <TextInput onChangeText={this.onChangeName} style={styles.inputText} placeholder="Name" placeholderTextColor="#777777" autoCapitalize="none" />
-        <TextInput onChangeText={this.onChangeEmail} style={styles.inputText} placeholder="Email" placeholderTextColor="#777777" autoCapitalize="none" />
-        <TextInput onChangeText={this.onChangePassword} style={styles.inputText} placeholder="Password" placeholderTextColor="#777777" autoCapitalize="none" secureTextEntry={true} />
-        <TouchableOpacity><Text style={styles.loginBtn} onPress={this.onSignUp}>SIGN UP</Text></TouchableOpacity>
-        <Text style={styles.not}>Already have an account? <Text style={styles.signup} onPress={this.goLogin}>Login</Text></Text> */}
-      </LinearGradient>
+      <NavigationContainer independent={true}>
+        <Tab.Navigator initialRouteName="Dashboard" screenOptions={{tabBarActiveTintColor: "#e91e63", tabBarStyle: {backgroundColor: "#331557"}}}>
+          <Tab.Screen name="Wallet" component={Wallet} />
+          <Tab.Screen name="Dashboard" component={Dashboard} />
+          <Tab.Screen name="Notification" component={Notification} />
+          <Tab.Screen name="Profile" component={Profile} />
+        </Tab.Navigator>
+      </NavigationContainer>
     )
   }
 }

@@ -36,7 +36,7 @@ export default class Login extends React.Component {
         ToastAndroid.show(response.data.message, ToastAndroid.SHORT)
         const { user } = response.data
         
-        this.props.navigation.navigate("Dashboard")
+        this.props.navigation.navigate("MyWallet")
       }).catch(error => {
         ToastAndroid.show(error.response.data.message, ToastAndroid.SHORT)
       })
